@@ -58,6 +58,10 @@ if __name__ == '__main__':
                         help='The host this particular HTTP pony will run on. Default is localhost.',
                         action='store', default='localhost')
 
+    parser.add_option('-I', '--include-path', dest='include',
+                        help='A colon-separated list of path\'s to append to Python\'s sys.path array. Default is None.',
+                        action='store', default=None)
+
     parser.add_option('-v', '--verbose', dest='verbose',
                         help='Enable verbose logging. Default is false.',
                         action='store_true', default=False)
@@ -68,6 +72,13 @@ if __name__ == '__main__':
         logging.basicConfig(level=logging.DEBUG)
     else:
         logging.basicConfig(level=logging.INFO)
+
+    # Some day, Python will have a -I flag...
+
+    if options.include:
+        for path in options.include.split(':'):
+            logging.debug('include %s to Python\'s sys.path')
+            sys.path.insert(0, path)
 
     logging.info('start server on %s:%s' % (options.host, options.port))
 

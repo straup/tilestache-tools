@@ -1,7 +1,7 @@
 Helper tools for doing TileStache [1] related things. For example:
 
 * httpony.py : A bare-bone WSGI based tileserver. Personally I would prefer to
-  use gunicorn/gunistache [2, 3] but it doesn't work on my laptop due to weird
+  use gunicorn/gunistache [2,3] but it doesn't work on my laptop due to weird
   OS X framework-related networking issues. [4]
 
   You use it like this:
