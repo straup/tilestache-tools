@@ -1,0 +1,18 @@
+Helper tools for doing TileStache [1] related things. For example:
+
+* httpony.py : A bare-bone WSGI based tileserver. Personally I would prefer to
+  use gunicorn/gunistache [2, 3] but it doesn't work on my laptop due to weird
+  OS X framework-related networking issues. [4]
+
+  You use it like this:
+
+  $> tilestache-tools/httpony.py -c /path/to/tilestache_config.json
+  INFO:root:start server on localhost:8001
+  localhost - - [11/Jun/2010 12:29:38] "GET /maplayer/13/2247/3246.png HTTP/1.1" 200 26234
+
+See also:
+
+[1] http://github.com/migurski/TileStache
+[2] http://gunicorn.org/
+[3] http://github.com/straup/gunistache
+[4] http://developer.apple.com/mac/library/technotes/tn2005/tn2083.html#SECDAEMONVSFRAMEWORKS
