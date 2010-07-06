@@ -10,7 +10,7 @@ def application(environ, start_response):
 
     config = environ['TILESTACHE_CONFIG']
 
-    layer, coord, ext = TileStache._splitPathInfo(environ['PATH_INFO'])
+    layer, coord, ext = TileStache.splitPathInfo(environ['PATH_INFO'])
 
     if not config.layers.get(layer, False):
         print >> environ['wsgi.errors'], "[gunistache] unknown layer: " + layer
